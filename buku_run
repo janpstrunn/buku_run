@@ -200,7 +200,7 @@ addMark () {
 }
 
 addTags () {
-    inserttags=$(buku --np --st | awk '{$NF=""; print $0}' | cut -d ' ' -f2- | _rofi -p '> ' -mesg "Add some tags. Separate tags with ', '")
+    inserttags=$(buku --np --st | awk '{$NF=""; print $0}' | cut -d ' ' -f2- | _rofi -p '> ' -mesg "Separate tags with ', '")
     val=$?
     if [[ $val -eq 1 ]]; then
         exit
@@ -217,7 +217,9 @@ addTags () {
         if [[ $1 == "--update" ]]; then
             buku -u "${id}" --tag ${tags}
         else
-            buku -a ${inserturl} ${tags}
+            buku -a ${inserturl} -c ""
+            buku -s ${inserturl} -u --tag ""
+            buku -s ${inserturl} -u --tag ${tags}
         fi
     fi
 }
