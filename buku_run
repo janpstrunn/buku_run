@@ -122,18 +122,8 @@ optionsMenu () {
 
 deleteMenu () {
     id=$(getId "$content" "$menu")
-    delask=$(echo -e "1. Yes\n2. No" | _rofi -p '> ' -mesg "Really delete bookmark?")
-    val=$?
-    if [[ $val -eq 1 ]]; then
-        exit
-    elif [[ $val -eq 0 ]]; then
-        if [[ $delask == "1. Yes" ]]; then
-            buku -d ${id} --tacit
-            mode=bookmarks main
-        elif [[ $delask == "2. No" ]]; then
-            optionsMenu
-        fi
-    fi
+    buku -d ${id} --tacit
+    mode=bookmarks main
 }
 
 editMenu () {
