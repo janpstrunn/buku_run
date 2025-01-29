@@ -16,3 +16,10 @@ rofi frontend for buku bookmarks manager
 * [buku](https://github.com/jarun/buku)
 * rofi (https://github.com/DaveDavenport/rofi)
 * bash
+
+## Fork Changes
+
+- No bookmark delete prompt
+- No tag fetching
+- Personalized mainbox
+- Only URL in listview
