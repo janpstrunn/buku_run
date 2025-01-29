@@ -25,25 +25,6 @@ then
   source /etc/buku_run.config
 fi
 
-# source local config:
-if [[ -z $XDG_CONFIG_DIR ]]
-then
-  if [[ -f $HOME/.config/buku_run/config ]]
-  then
-    source $HOME/.config/buku_run/config
-  else
-    echo "User config file \'~/.config/buku_run/config\' not found. using global config"
-  fi
-else
-  if [[ -f "${XDG_CONFIG_DIR}/buku_run/config" ]]
-  then
-    source "${XDG_CONFIG_DIR}/buku_run/config"
-  else
-    echo "User config file \'~/.config/buku_run/config\' not found. using global config"
-  fi
-fi
-
-
 main () {
     HELP="<span color='${help_color}'>${new_bookmark}</span>: New Bookmark <span color='${div_color}'>|</span> <span color='${help_color}'>${switch_view}</span>: Tag Mode <span color='${div_color}'>|</span> <span color='${help_color}'>${edit}</span>: Edit Mode <span color='${div_color}'>|</span> <span color='${help_color}'>${delete}</span>: Delete"
     if [[ $mode == "bookmarks" ]]; then
