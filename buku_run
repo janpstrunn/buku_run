@@ -6,7 +6,7 @@ _rofi () {
 
 # display settings
 display_type=1
-max_str_width=80
+max_str_width=200
 
 # keybindings
 switch_view="Alt+Tab"
